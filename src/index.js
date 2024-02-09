@@ -4,6 +4,7 @@ import mongoose, { connect } from "mongoose";
 import { DB_NAME } from "./constants.js";
 import connectDB from "./db/index.js";
 import { app } from "./app.js";
+import RangeParser from "range-parser";
 dotenv.config({
     path:'./env'
 })
@@ -12,9 +13,9 @@ connectDB()
 
 .then(() => {
 
-    app.on(('error', (error) => {
-        console.log(`error: ${error}`)
-    }))
+    // app.on(('error', (error) => {
+    //     console.log(`error: ${error}`)
+    // }))
     app.listen(process.env.PORT , () => {
         console.log(`server is listing on port ${process.env.PORT}`)
     })
